@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { User } from "./user";
 
 import 'rxjs/add/operator/map';
 import { BehaviorSubject } from 'rxjs';
@@ -25,10 +25,11 @@ user:BehaviorSubject<User> = new BehaviorSubject(null);
   constructor(private http:HttpClient) { }
 
   getAllUsers():Promise<NewuserComponent[]>{
-    return this.http.get<NewuserComponent[]>(this.urlApi).toPromise();
+    return this.http.get<NewuserComponent[]>(this.urlAPI).toPromise();
 }
 
 addUser(user):Promise<NewuserComponent>{
-    return this.http.post<NewuserComponent>(this.urlApi, user).toPromise(); 
+    return this.http.post<NewuserComponent>(this.urlAPI, user).toPromise(); 
 
+}
 }
