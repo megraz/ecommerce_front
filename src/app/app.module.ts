@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, Validator, ReactiveFormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,6 +11,7 @@ import { UserService } from './shared/user.service';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { ProductService } from './shared/product.service';
+import { AuthService } from './shared/auth.service';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,13 @@ import { ProductService } from './shared/product.service';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [
+  providers: [AuthService,
     UserService,
-    ProductService
-  ],
+    ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

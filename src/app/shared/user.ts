@@ -3,6 +3,7 @@ export class User {
     pseudo:string;
     email:string;
     mdp:string;
+    token:string;
     
 
     constructor(pseudo:string, email:string, mdp:string, id?:number){

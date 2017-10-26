@@ -32,4 +32,5 @@ addUser(user):Promise<NewuserComponent>{
     return this.http.post<NewuserComponent>(this.urlAPI, user).toPromise(); 
 
 }
+
 }

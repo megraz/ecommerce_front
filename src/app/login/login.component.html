@@ -5,3 +5,8 @@
     <input type="password">
     <button (click)="login()">login</button>
 </form>
+
+<section *ngIf="connected">
+    Hello
+    <button (click)="logout()">logout</button>
+</section>

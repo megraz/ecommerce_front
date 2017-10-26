@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   pseudo:string;
   mdp:string;
+  connected:boolean =  false;
 
 
-  constructor() { }
+  constructor(private auth:AuthService) { }
 
   ngOnInit() {
   }
 
   login(){
-    
+    this.auth.login(this.pseudo, this.mdp).subscribe(logged => this.connected = logged);
+  }
+
+  logout() {
+    this.auth.logout();
+    this.connected = false;
   }
 
 }
