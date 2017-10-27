@@ -8,27 +8,27 @@ import { User } from './user';
 
 @Injectable()
 export class ProductService {
-  private urlApi:string = 'http://localhost:3000/product';
+  private urlAPI:string = 'http://localhost:3000/product';
 
   constructor(private http:HttpClient) { }
 
   getAllProducts():Observable<Product[]>{
-    return this.http.get<Product[]>(this.urlApi);
+    return this.http.get<Product[]>(this.urlAPI);
   }
 
   addProduct(product):Observable<Product>{
-    return this.http.post<Product>(this.urlApi, product);
+    return this.http.post<Product>(this.urlAPI, product);
   }
 
   getProductById(id:number):Observable<Product> {
-      return this.http.get<Product>(this.urlApi+'/'+id);
+      return this.http.get<Product>(this.urlAPI+'/'+id);
 }
 
   removeProduct(id):Observable<any>{
-      return this.http.delete(this.urlApi+'/'+id);
+      return this.http.delete(this.urlAPI+'/'+id);
   }
 
   updateProduct(id:number, product:Product):Observable<Product> {
-    return this.http.patch<Product>(this.urlApi+'/'+id,product);
+    return this.http.patch<Product>(this.urlAPI+'/'+id,product);
 }
 }

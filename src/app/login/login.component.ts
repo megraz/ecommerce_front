@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-login',
@@ -25,5 +26,4 @@ export class LoginComponent implements OnInit {
     this.auth.logout();
     this.connected = false;
   }
-
 }

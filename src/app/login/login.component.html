@@ -1,9 +1,16 @@
-<form *ngIf="!connected" (submit)="login()">
+<!-- <form *ngIf="!connected" (submit)="login()">
     <label for="pseudo">Pseudo</label>
     <input type="text" [(ngModel)]="pseudo" name="pseudo">
     <label for="mdp">Mot de passe</label>
     <input type="password">
     <button (click)="login()">login</button>
+</form> -->
+<form *ngIf="!connected" (submit)="login()">
+    <label>Pseudo</label>
+    <input type="text" [(ngModel)]="pseudo" name="pseudo">
+    <label>Mot de passe</label>
+    <input type="password" [(ngModel)]="mdp" name="mdp">
+    <button>login</button>
 </form>
 
 <section *ngIf="connected">

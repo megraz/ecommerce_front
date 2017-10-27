@@ -5,6 +5,7 @@ import { User } from "./user";
 import 'rxjs/add/operator/map';
 import { BehaviorSubject } from 'rxjs';
 import { NewuserComponent } from '../newuser/newuser.component';
+import { Observable } from 'rxjs/Observable';
 
 
 
@@ -32,5 +33,6 @@ addUser(user):Promise<NewuserComponent>{
     return this.http.post<NewuserComponent>(this.urlAPI, user).toPromise(); 
 
 }
+
 
 }

@@ -12,13 +12,26 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { ProductService } from './shared/product.service';
 import { AuthService } from './shared/auth.service';
+import { PgenotfoundComponent } from './pgenotfound/pgenotfound.component';
+import { NewauthorComponent } from './newauthor/newauthor.component';
+import { AuthorService } from './shared/author.service';
+import { NewcategoryComponent } from './newcategory/newcategory.component';
+import { CategoryService } from './shared/category.service';
+import { ListeUserComponent } from './liste-user/liste-user.component';
+import { ListeproductComponent } from './listeproduct/listeproduct.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NewuserComponent,
-    NewproductComponent
+    NewproductComponent,
+    PgenotfoundComponent,
+    NewauthorComponent,
+    NewcategoryComponent,
+    ListeUserComponent,
+    ListeproductComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +42,10 @@ import { AuthService } from './shared/auth.service';
   ],
   providers: [AuthService,
     UserService,
-    ProductService],
+    ProductService,
+    AuthorService,
+    CategoryService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
