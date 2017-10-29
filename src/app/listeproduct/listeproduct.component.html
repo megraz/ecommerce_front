@@ -1,3 +1,10 @@
-<p>
-  listeproduct works!
-</p>
+<h1>Liste des oeuvres</h1>
+
+
+<li *ngFor="let item of listeproducts; index as clef">
+    <a [routerLink]="[ '/product', item.id]">{{item.name}}</a>
+    <button (click)="removeProduct(item.id)">Supprimer</button>
+    <button (click)="aModifier = item">Modifier</button>
+</li>
+
+<app-modifier-product *ngIf="aModifier" [product]="aModifier" (onSave)="editProduct($event)"></app-modifier-product>

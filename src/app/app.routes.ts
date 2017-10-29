@@ -6,6 +6,8 @@ import { LoginComponent } from "./login/login.component";
 import { NewauthorComponent } from "./newauthor/newauthor.component";
 import { NewcategoryComponent } from "./newcategory/newcategory.component";
 import { ListeUserComponent } from "./liste-user/liste-user.component";
+import { ListeproductComponent } from "./listeproduct/listeproduct.component";
+import { ModifierProductComponent } from "./modifier-product/modifier-product.component";
 
 
 
@@ -23,5 +25,8 @@ export const appRoutes:Routes = [
     {path: 'newauthor', component: NewauthorComponent},
     {path: 'newcategory', component: NewcategoryComponent},
     {path: 'listeuser', component: ListeUserComponent},
+    {path: 'listeproduct', component: ListeproductComponent},
+    {path: 'edit', component: ModifierProductComponent},
+
     {path: '**', redirectTo: ''}
 ];

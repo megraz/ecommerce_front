@@ -19,6 +19,7 @@ import { NewcategoryComponent } from './newcategory/newcategory.component';
 import { CategoryService } from './shared/category.service';
 import { ListeUserComponent } from './liste-user/liste-user.component';
 import { ListeproductComponent } from './listeproduct/listeproduct.component';
+import { ModifierProductComponent } from './modifier-product/modifier-product.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ListeproductComponent } from './listeproduct/listeproduct.component';
     NewauthorComponent,
     NewcategoryComponent,
     ListeUserComponent,
-    ListeproductComponent
+    ListeproductComponent,
+    ModifierProductComponent
   ],
   imports: [
     BrowserModule,

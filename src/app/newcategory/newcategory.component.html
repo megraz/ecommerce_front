@@ -1,3 +1,16 @@
-<p>
-  newcategory works!
-</p>
+<section>
+    <form>
+        <h1>Nouvelle Catégorie</h1>
+        <p>
+            <label>Nom: </label>
+            <input type="text" name="name" [(ngModel)]="name">
+            <button (click)="addCategory(name)">Ajouter</button>
+        </p>
+    </form>
+
+    <li *ngFor="let item of tableau; index as clef">
+        {{item.name}}
+        <button>Supprimer</button>
+    </li>
+
+</section>
