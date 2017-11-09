@@ -12,7 +12,7 @@ import { Product} from "../shared/product";
   styleUrls: ['./newproduct.component.css']
 })
 export class NewproductComponent implements OnInit {
-  // file:File;
+  fichier:FileList;
   listeproducts = [];
   listeauthor = [];
   tableaucategory = [];
@@ -20,10 +20,12 @@ export class NewproductComponent implements OnInit {
   
   name: string;
   description: string;
+  price:number;
   categoryId: number;
   authorId: number;
-  price: number;
-
+  link:string;
+  // pictures:Observable<picture[]>
+  // newPic:Picture;
   category: Category;
   author: Author;
 
@@ -38,11 +40,22 @@ export class NewproductComponent implements OnInit {
   }
 
   addProduct() {
-    this.categoryService.getCategoryById(this.categoryId).subscribe((category)=>this.category=category);
-      this.authorService.getAuthorById(this.authorId).subscribe((author)=>this.author=author);
-      this.productService.addProduct(new Product(this.name, this.description, this.price, this.category,this.author)).subscribe((category)=>console.log(category));
+    //On crée un FileReader (javascript Natif) qui nous
+  //aidera à transformer notre fichier en flux binaire
+    let reader = new FileReader();
+    reader.onload = (event:ProgressEvent) => {
+      this.link = reader.result;
+    this.categoryService.getCategoryById(this.categoryId).subscribe((category)=>{
+      this.category=category;
+    this.authorService.getAuthorById(this.authorId).subscribe((author)=>{
+      this.author=author;
+    this.productService.addProduct(new Product(this.author,this.name, this.description, this.category, this.price,this.link)).subscribe((category)=>console.log(category));
+  });
+});
+  //On dit au fileReader de lire le fichier sous forme
+    //de DataURL (en gros le fichier est transformé en 
+    //une string de caractères)
+    reader.readAsDataURL(this.fichier[0]);
+    }
   }
-
-
-
 }

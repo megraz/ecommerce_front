@@ -7,6 +7,7 @@ export class Product {
     name:string;
     description:string;
     price:number;
+    link:string;
     category:Category;
     author: Author;
 
@@ -15,12 +16,14 @@ export class Product {
         description:string,
         category:Category,
         price:number,
+        link:string,
         id?:number) {
             this.author = author;
             this.name = name;
             this.description = description;
             this.category = category;
             this.price = price;
+            this.link = link;
             this.id = id;
         }
 

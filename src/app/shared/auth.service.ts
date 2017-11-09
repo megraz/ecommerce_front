@@ -16,6 +16,7 @@ export class AuthService {
   }
 
   init() {
+    console.log(localStorage)
     this.token = localStorage.getItem('token');
     if(this.token) {
       let expiration = parseInt(this.token.split('|')[1]);
@@ -28,13 +29,13 @@ export class AuthService {
 } 
   }
 
-  login(username:string,pass:string):Observable<boolean> {
+  login(pseudo:string,mdp:string):Observable<boolean> {
     
-    return this.http.get<User[]>(this.urlAPI+'?username='+username+'&password='+pass)
-    .map((users) => {
-      if(users.length === 1) {
-        localStorage.setItem('token', users[0].token);
-        this.user.next(users[0]);
+    return this.http.post<User>(this.urlAPI, {pseudo:pseudo,mdp:mdp})
+    .map((user) => {
+      if(user) {
+        localStorage.setItem('token', user.token);
+        this.user.next(user);
         return true;
       }
       return false;
@@ -51,18 +52,12 @@ export class AuthService {
     return this.http.post<User>(this.urlAPI, user);
   }
 
-  getByUsername(username:string):Observable<User[]> {
-    return this.http.get<User[]>(this.urlAPI+'?username='+username);
+  getByPseudo(pseudo:string):Observable<User[]> {
+    return this.http.get<User[]>(this.urlAPI+'?pseudo='+pseudo);
   }
 
   getByToken(token:string):Observable<User> {
-    return this.http.get<User[]>(this.urlAPI+'?token='+token)
-    .map((users) => {
-      if(users.length === 1) {
-        return users[0];
-      }
-      return null
-    });
+    return this.http.post<User>(this.urlAPI+'/token', {token:token});
   }
 
   

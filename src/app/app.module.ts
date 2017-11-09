@@ -19,7 +19,11 @@ import { NewcategoryComponent } from './newcategory/newcategory.component';
 import { CategoryService } from './shared/category.service';
 import { ListeUserComponent } from './liste-user/liste-user.component';
 import { ListeproductComponent } from './listeproduct/listeproduct.component';
-import { ModifierProductComponent } from './modifier-product/modifier-product.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatFormFieldModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatButtonModule } from "@angular/material";
+import { HeaderComponent } from './header/header.component';
+import { BasketComponent } from './basket/basket.component';
+
 
 
 @NgModule({
@@ -33,7 +37,9 @@ import { ModifierProductComponent } from './modifier-product/modifier-product.co
     NewcategoryComponent,
     ListeUserComponent,
     ListeproductComponent,
-    ModifierProductComponent
+    HeaderComponent,
+    BasketComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,12 @@ import { ModifierProductComponent } from './modifier-product/modifier-product.co
     ReactiveFormsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule
   ],
   providers: [AuthService,
     UserService,

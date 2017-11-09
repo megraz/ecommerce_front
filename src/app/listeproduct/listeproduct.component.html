@@ -2,9 +2,10 @@
 
 
 <li *ngFor="let item of listeproducts; index as clef">
-    <a [routerLink]="[ '/product', item.id]">{{item.name}}</a>
+    <a [routerLink]="[ '/product', item.id]"></a>
+    <!--<a [routerLink]="[ '/product', item.id]">{{item.name}}</a>-->
     <button (click)="removeProduct(item.id)">Supprimer</button>
     <button (click)="aModifier = item">Modifier</button>
 </li>
 
-<app-modifier-product *ngIf="aModifier" [product]="aModifier" (onSave)="editProduct($event)"></app-modifier-product>
+<!-- <app-modifier-product *ngIf="aModifier" [product]="aModifier" (onSave)="editProduct($event)"></app-modifier-product> -->

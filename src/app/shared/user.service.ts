@@ -34,5 +34,18 @@ addUser(user):Promise<NewuserComponent>{
 
 }
 
+getUserById(id:number):Observable<User> {
+  return this.http.get<User>(this.urlAPI+'/'+id);
+}
+
+removeUser(id):Observable<any>{
+    return this.http.delete(this.urlAPI+'/'+id);
+}
+
+updateUser(id:number, user:User):Observable<User> {
+  return this.http.patch<User>(this.urlAPI+'/'+id,
+  user);
+}
+
 
 }

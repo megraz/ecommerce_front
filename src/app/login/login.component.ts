@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { Observable } from 'rxjs/Observable';
+import { User } from '../shared/user';
+import { Basket } from "../shared/basket";
 
 @Component({
   selector: 'app-login',
@@ -11,9 +13,12 @@ export class LoginComponent implements OnInit {
   pseudo:string;
   mdp:string;
   connected:boolean =  false;
+  user:User;
 
 
-  constructor(private auth:AuthService) { }
+  constructor(private auth:AuthService) { 
+    this.auth.user.subscribe((user) => this.user = user)
+  }
 
   ngOnInit() {
   }
@@ -27,3 +32,6 @@ export class LoginComponent implements OnInit {
     this.connected = false;
   }
 }
+
+
+

@@ -1,5 +1,34 @@
 <h1>Nouveauté</h1>
 <!-- cf /pictures git promo3-ng-insta -->
 <form>
+    <mat-form-field>
+        <label for="name">Nom</label>
+        <input type="text" [(ngModel)]="name" name="name" matInput placeholder="Nom">
+    </mat-form-field>
+
+    <mat-form-field>
+        <label for="description">Description</label>
+        <textarea name="description" id="" cols="30" rows="10" [(ngModel)]="description" matInput placeholder="Description"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <label for="price">Prix</label>
+        <input type="text" [(ngModel)]="price" name="price" matInput placeholder="Prix">
+    </mat-form-field>
 
 </form>
+
+<!-- <ul>
+    <li *ngFor="let pic of pictures">
+        <img [src]="pic.link" [alt]="pic.description">
+        <p>{{pic.description}}</p>
+        <p>Likes count : {{pic.likes.length}} </p>
+    </li>
+</ul> -->
+
+<label for="image">Image</label>
+<input type="file" #file (change)="fichier = file.files">
+
+
+
+<button (click)="addProduct()" mat-raised-button color="primary">Ajouter</button>
